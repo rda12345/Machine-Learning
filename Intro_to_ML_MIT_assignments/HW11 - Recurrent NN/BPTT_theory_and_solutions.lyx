@@ -1,0 +1,1002 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Back propagation through time
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "lyx short cuts english.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Derivation
+\end_layout
+
+\begin_layout Standard
+The recurrent neural network state is defined by the following equations:
+\end_layout
+
+\begin_layout Standard
+The state at time 
+\begin_inset Formula $t$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s_{t}=f\b{s_{t},x_{t}}=f_{1}\b{W^{sx}x_{t}+W^{ss}s_{t-1}+W_{0}^{ss}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The prediction is given by 
+\begin_inset Formula 
+\[
+p_{t}=g\b{s_{t}}=f_{2}\b{W^{o}s_{t}+W_{0}^{o}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+x_{t}:l\times1
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+s_{t}:m\times1
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+y_{t}:v\times1
+\]
+
+\end_inset
+
+The weights matrices are of size 
+\begin_inset Formula 
+\[
+W^{sx}:m\times l
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W^{ss}:m\times m
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W_{0}^{ss}:m\times l
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W^{o}:v\times m
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W_{0}^{o}:v\times1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+we also define 
+\begin_inset Formula 
+\[
+z_{t}^{1}=W^{sx}x_{t}+W^{ss}s_{t-1}+W_{0}^{ss}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+z_{t}^{2}=W^{o}s_{t}+W_{0}^{o}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+such that we can concisly write 
+\begin_inset Formula 
+\[
+s_{t}=f_{1}\b{z_{t}^{1}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+p_{t}=f_{2}\b{z_{t}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The backward pass for both 
+\begin_inset Formula $W^{ss}$
+\end_inset
+
+ and 
+\begin_inset Formula $W^{sx}$
+\end_inset
+
+ involves computing 
+\begin_inset Formula 
+\[
+\f{dL_{seq}}{dW}=\sum_{u=1}^{n}\f{dL_{u}}{dW}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $L_{u}=L_{elt}\b{p_{u},y_{u}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The since 
+\begin_inset Formula $W$
+\end_inset
+
+ effects 
+\begin_inset Formula $L_{elt}$
+\end_inset
+
+ through all the states we have 
+\begin_inset Formula 
+\[
+dL_{elt}=\sum_{t=1}^{n}\pd{L_{u}}{s_{t}}ds_{t}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\f{dL_{seq}}{dW}=\sum_{u=1}^{n}\sum_{t=1}^{n}\pd{L_{elt}}{s_{t}}\f{ds_{t}}{dW}=\sum_{u=1}^{n}\sum_{t=1}^{n}\pd{L_{elt}}{s_{t}}\pd{s_{t}}W
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $s_{t}$
+\end_inset
+
+ effects only the 
+\begin_inset Formula $L_{u}$
+\end_inset
+
+ at steps 
+\begin_inset Formula $u\geq t$
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\[
+=\sum_{u=t}^{n}\sum_{t=1}^{n}\pd{L_{u}}{s_{t}}\pd{s_{t}}W
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\sum_{t=1}^{n}\pd{s_{t}}W\sum_{u=t}^{n}\pd{L_{u}}{s_{t}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\sum_{t=1}^{n}\pd{s_{t}}W\sb{\pd{L_{u}}{s_{t}}+\sum_{u=t+1}^{n}\pd{L_{u}}{s_{t}}}
+\]
+
+\end_inset
+
+we define the 
+\begin_inset Formula 
+\[
+\delta^{s_{t}}=\sum_{u=t+1}^{n}\pd{L_{u}}{s_{t}}
+\]
+
+\end_inset
+
+ which is the dependence of the loss at times after 
+\begin_inset Formula $t$
+\end_inset
+
+ on the state at time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\f{dL}{dW}=\sum_{t=1}^{n}\pd{s_{t}}W\sb{\pd{L_{u}}{s_{t}}+\delta^{s_{t}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Defining the 
+\bar under
+future loss
+\bar default
+
+\begin_inset Formula 
+\[
+F_{t}=\sum_{u=t+1}^{n}L_{u}=\sum_{u=t+1}^{n}L_{elt}\b{p_{u},y_{u}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta^{s_{t-1}}=\sum_{u=t}^{n}\pd{L_{u}}{s_{t-1}}=\pd{s_{t}}{s_{t-1}}\sb{\pd{L_{u}}{s_{t}}+\sum_{u=t+1}^{n}\pd{L_{u}}{s_{t}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\pd{s_{t}}{s_{t-1}}\sb{\pd{L_{t}}{s_{t}}+\sum_{u=t+1}^{n}\pd{L_{u}}{s_{t}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\delta^{s_{t-1}}=\pd{s_{t}}{s_{t-1}}\sb{\pd{L_{t}}{s_{t}}+\delta^{s_{t}}}
+\]
+
+\end_inset
+
+note that 
+\begin_inset Formula $s_{t}=f_{1}\b{W^{sx}x_{t}+W^{ss}s_{t-1}+W_{0}^{ss}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In more detail we have that 
+\begin_inset Formula $\delta^{s_{t}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\pd{L_{u}}{s_{t}}$
+\end_inset
+
+ are vector of size 
+\begin_inset Formula $m\times1$
+\end_inset
+
+ , therefore the element 
+\begin_inset Formula $k$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\[
+\delta_{k}^{s_{t-1}}=\sum_{u=t}^{n}\pd{L_{u}}{s_{t-1}^{k}}=\sum_{j}\pd{s_{t}^{j}}{s_{t-1}^{k}}\sb{\pd{L_{t}}{s_{t}^{j}}+\sum_{u=t+1}^{n}\pd{L_{u}}{s_{t}^{j}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\pd{s_{t}^{j}}{s_{t-1}^{k}}=W_{jk}^{ss}\pd f{z_{t}^{1,j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore we see that 
+\begin_inset Formula $\pd{s_{t}}{s_{t-1}}$
+\end_inset
+
+ is a 
+\begin_inset Formula $m\times m$
+\end_inset
+
+ matrix which 
+\begin_inset Formula $k,j$
+\end_inset
+
+ element is given by 
+\begin_inset Formula $\b{W^{ss}}_{kj}^{T}\pd f{z_{t}^{1,j}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\ra\pd{s_{t}}{s_{t-1}}=\b{W^{ss}}^{T}*\pd f{z_{t}^{1}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $*$
+\end_inset
+
+ is the Hadamard product (element by element product)
+\end_layout
+
+\begin_layout Standard
+This can be see since 
+\begin_inset Formula $s_{t}:m\times1$
+\end_inset
+
+, therefore 
+\begin_inset Formula $\pd{s_{t}}{s_{t-1}}:m\times m$
+\end_inset
+
+, 
+\begin_inset Formula $\pd f{z_{t}^{1}}:m\times1$
+\end_inset
+
+ and 
+\begin_inset Formula $W^{ss}:m\times m$
+\end_inset
+
+ (the transpose is needed to get the order correct.) 
+\end_layout
+
+\begin_layout Standard
+In addition 
+\begin_inset Formula 
+\[
+\pd{L_{u}}{s_{t}}=\pd{z_{t}}{s_{t}}\pd{L_{u}}{z_{t}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\b{W^{o}}^{T}*\pd{L_{u}}{z_{t}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This fits, since 
+\begin_inset Formula $W^{o}:v\times m$
+\end_inset
+
+ and 
+\begin_inset Formula $\pd{L_{u}}{z_{t}^{2}}:v\times1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+overall 
+\series bold
+
+\begin_inset Formula 
+\[
+\delta^{s_{t}}=\b{W^{ss}}^{T}*\pd f{z_{t}^{1}}\sb{\b{W^{o}}^{T}*\pd{L_{u}}{z_{t}^{2}}+\delta^{s_{t}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\f{L_{seq}}{dW^{ss}}=\sum_{t=1}^{n}\pd{s_{t}}{W^{ss}}\sum_{u=t}^{n}\pd{L_{u}}{s_{t}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\sum_{t=1}^{n}\pd{s_{t}}{W^{ss}}\pd{F_{u}}{s_{t}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\sum_{t=1}^{n}\pd{z_{t}^{1}}{W^{ss}}\pd{s_{t}}{z_{t}^{1}}\pd{F_{u}}{s_{t}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To understand the exact matrix expression we look at the specific index
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\sb{\f{L_{seq}}{dW^{ss}}}_{jk}=\f{L_{seq}}{dW_{jk}^{ss}}=\sum_{p}\sum_{t=1}^{n}\pd{s_{t}^{p}}{W_{jk}^{ss}}\pd{F_{u}}{s_{t}^{p}}=\sum_{p}\sum_{t=1}^{n}\pd{s_{t}^{p}}{W_{jk}^{ss}}\delta_{p}^{s_{t}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+since the relation between 
+\begin_inset Formula $s_{t}$
+\end_inset
+
+ and 
+\begin_inset Formula $z_{t}$
+\end_inset
+
+ is an elementwise operation (the 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ mapping) we have
+\begin_inset Formula 
+\[
+=\sum_{p}\sum_{t=1}^{n}\pd{z_{t}^{1,p}}{W_{jk}^{ss}}\pd{s_{t}^{p}}{z_{t}^{1,p}}\delta_{p}^{s_{t}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\sum_{p}\sum_{t=1}^{n}s_{t-1}^{p}\delta_{jp}f'\b{z^{1,p}}\delta_{p}^{s_{t}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\sum_{t=1}^{n}\b{\pd{f_{1}}{z_{t}^{1}}}^{T}s_{t-1}*\pd{F_{u}}{s_{t}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\pd{f_{1}}{z_{t}^{1}}:m\times1$
+\end_inset
+
+, 
+\begin_inset Formula $s_{t}:m\times1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+But I'm not sure regarding the order of the last step, write it in terms
+ of indicies and work it out...
+\end_layout
+
+\begin_layout Section
+Homework solutions (week 11)
+\end_layout
+
+\begin_layout Subsection*
+Q4
+\end_layout
+
+\begin_layout Standard
+We consider the following NN 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+s_{1}=W^{ss}s_{0}+v_{1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+v_{1}=\sigma\b{w_{1}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+w_{1}=CNN\b{x_{1}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+p_{1}=W^{o}s_{1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+s_{2}=W^{ss}s_{1}+v_{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+v_{2}=\sigma\b{w_{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+w_{2}=CNN\b{x_{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+p_{2}=W^{o}s_{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+L\b{p_{,}y}=\f 1{2T}\sum_{t=1}^{T}\b{p_{t}-y_{t}}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $W^{ss}$
+\end_inset
+
+ and 
+\begin_inset Formula $W^{o}$
+\end_inset
+
+ is a scalar 
+\begin_inset Formula 
+\[
+\pd L{v_{2}}=\f 12\b{p_{2}-y_{2}}\pd{}{v_{2}}p_{2}=\f 12\b{p_{2}-y_{2}}\pd{}{v_{2}}W^{o}s_{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\f 12\b{p_{2}-y_{2}}\pd{}{v_{2}}\b{W^{o}\b{W^{ss}s_{1}+v_{2}}}=\f 12\b{p_{2}-y_{2}}W^{o}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\pd L{v_{1}}=\f 12\b{p_{2}-y_{2}}\pd{}{v_{1}}W^{o}s_{2}+\f 12\b{p_{1}-y_{1}}\pd{}{v_{1}}p_{1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\f 12\b{p_{2}-y_{2}}\pd{}{v_{1}}\b{W^{ss}s_{1}+v_{2}}+\f 12\b{p_{1}-y_{1}}W^{o}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\f 12\b{p_{2}-y_{2}}W^{o}W^{ss}\pd{}{v_{1}}s_{1}+\f 12\b{p_{1}-y_{1}}W^{o}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\f 12\sb{\b{p_{2}-y_{2}}W^{o}W^{ss}+\b{p_{1}-y_{1}}W^{o}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Q5
+\end_layout
+
+\begin_layout Subsubsection*
+51.A
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pd L{s_{t}}=\pd{z_{t}^{2}}{s_{t}}\pd L{z_{t}^{2}}=\b{W^{o}}^{T}\b{p_{t}-y_{t}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+51.B
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\pd{}{s_{t}}\sb{L\b{y_{t},p_{t}}+\sum_{l=t+1}^{n}L\b{y_{l},p_{l}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\pd{}{s_{t}}L\b{y_{t},p_{t}}+\pd{}{s_{t}}F_{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+51.C
+\begin_inset Formula 
+\[
+\pd{}{z_{t}^{1}}\sb{L\b{y_{t},p_{t}}+\sum_{l=t+1}^{n}L\b{y_{l},p_{l}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\pd{s_{t}}{z_{t}^{1}}\sb{\pd{}{s_{t}}L\b{y_{t},p_{t}}+\pd{F_{t}}{s_{t}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=f_{1}'\b{z_{t}^{1}}*\sb{\pd{}{s_{t}}L\b{y_{t},p_{t}}+\pd{F_{t}}{s_{t}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+51.D
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta^{s_{t-1}}=\sum_{u=t}^{n}\pd{L_{u}}{s_{t-1}}=\pd{z_{t}}{s_{t-1}}\sb{\pd{L_{u}}{z_{t}}+\sum_{u=t+1}^{n}\pd{L_{u}}{z_{t}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\b{W^{ss}}^{T}\cdot\sb{\pd{L_{u}}{z_{t}}+\sum_{u=t+1}^{n}\pd{L_{u}}{z_{t}}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+52.A
+\end_layout
+
+\begin_layout Standard
+We have 
+\begin_inset Formula 
+\[
+\f{dF}{ds_{t}}=\pd{}{s_{t}}\sb{L_{t}+\sum_{l=t+1}^{n}L_{l}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\f{dF}{dz_{t}^{1}}=\pd{}{z_{t}^{1}}\sb{L_{t}+\sum_{l=t+1}^{n}L_{l}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\f{dL}{dz_{t}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\f d{dW^{o}}L\b{y_{t},p_{t}}=\pd L{z_{t}^{2}}\pd{z_{t}^{2}}{W^{o}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\pd L{z_{t}^{2}}s_{t}^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+52.B
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\f d{dW^{o}}L\b{y_{t},p_{t}}=\pd L{z_{t}^{2}}\pd{z_{t}^{2}}{W_{0}^{o}}=\pd L{z_{t}^{2}}\pd{z_{t}^{2}}{W_{0}^{o}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+52.C
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\f d{dW^{ss}}\sb{\sum_{l=t}^{n}L_{l}}=\pd{z_{t}^{1}}{W^{ss}}\pd{}{z_{t}^{1}}\sb{\sum_{l=t}^{n}L_{l}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\sb{\pd{}{z_{t}^{1}}\sum_{l=t}^{n}L_{l}}\cdot s_{t-1}^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+52.D
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\f d{dW_{0}^{ss}}\sb{\sum_{l=t}^{n}L_{l}}=\pd{z_{t}^{1}}{W^{ss}}\pd{}{z_{t}^{1}}\sb{\sum_{l=t}^{n}L_{l}}=\pd{}{z_{t}^{1}}\sb{\sum_{l=t}^{n}L_{l}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+52.E
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\f d{dW^{sx}}\sb{\sum_{l=t}^{n}L_{l}}=\pd{z_{t}^{1}}{W^{sx}}\pd{}{z_{t}^{1}}\sb{\sum_{l=t}^{n}L_{l}}=\sb{\pd{}{z_{t}^{1}}\sum_{l=t}^{n}L_{l}}\cdot x_{t}^{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
