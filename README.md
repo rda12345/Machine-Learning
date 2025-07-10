@@ -1,10 +1,11 @@
 # Machine-Learning
-Contains  material related to machine learning and deep learning
+Contains  material related to machine learning with a focus on deep learning
 
 ## Introduction to machine learning - MIT's online course 6.036
-The document Intro_to_ML_MIT contains code related to the exercise solution of the course.
+The document Intro_to_ML_MIT_assignments contains code related to the exercise solution of the course.
 
-##  Introduction to deep learning - MIT's online course 6.S191
+##  Introduction to deep learning - MIT's online course 6.S191 (2005 addition) 
+course website: https://introtodeeplearning.com/
 Documents lab1,lab2, and lab3 contain the solved exersizes of the course.
 lab1: Basics of PyTorch and TensorFlow and music generation
 lab2: Facial detection system
