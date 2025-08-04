@@ -6,7 +6,7 @@ The document Intro_to_ML_MIT_assignments contains code related to the exercise s
 
 ##  Introduction to deep learning - MIT's online course 6.S191 (2005 addition) 
 
-Documents lab1,lab2, and lab3 contain the solved exersizes of the course.
+Contains the solved exersizes of the course.
 
 lab1: Basics of PyTorch and TensorFlow and music generation
 
