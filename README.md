@@ -1,5 +1,5 @@
 # Machine Learning
-Contains  material related to machine learning
+Contains  material related to machine learning with an emphasis on deep learning.
 
 ## Introduction to machine learning - MIT's online course 6.036
 The document Intro_to_ML_MIT_assignments contains code related to the exercise solution of the course.
