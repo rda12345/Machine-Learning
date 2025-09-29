@@ -22,10 +22,6 @@ Neural_network.py contains code based on the explanations, as well as solutions 
 "Neural networks and deep learning" by Michael Nielsen
 http://neuralnetworksanddeeplearning.com/index.html.
 
-## Reinforcement learning
-Contains RL algorithms and solutions to various built-in environments in OpenAI's Gymnasium module.
-Following Sutton and Barto's book, the problems are solved by employing: 
-Q-learning, policy, and value iteration methods.
 
 
 
