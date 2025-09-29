@@ -1,25 +1,25 @@
 # Machine-Learning
-Contains  material related to machine learning with a focus on deep learning
+Contains  material related to machine learning
 
 ## Introduction to machine learning - MIT's online course 6.036
 The document Intro_to_ML_MIT_assignments contains code related to the exercise solution of the course.
 
 ##  Introduction to deep learning - MIT's online course 6.S191 (2005 addition) 
 
-Contains the solved exersizes of the course.
+Contains the solved exercises of the course.
 
 lab1: Basics of PyTorch and TensorFlow and music generation
 
-lab2: Facial detection system
+Lab2: Facial detection system
 
-lab3: Fine tunning an large language model
+lab3: Fine-tuning a large language model
 
 course website: https://introtodeeplearning.com/
 
 
 ## Neural networks and deep learning book
-Neural_network.py contains a code based on the explainations as well as solutions to the code related problems of the book
-"Neural networks and deep learning" by Michael Neilsen
+Neural_network.py contains code based on the explanations, as well as solutions to the code-related problems of the book
+"Neural networks and deep learning" by Michael Nielsen
 http://neuralnetworksanddeeplearning.com/index.html.
 
 
