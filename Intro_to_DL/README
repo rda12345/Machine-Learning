@@ -1,0 +1,11 @@
+##  Introduction to deep learning - MIT's online course 6.S191 (2005 addition) 
+
+The folder contains the course's solved exersizes.
+
+lab1: Basics of PyTorch and TensorFlow and music generation
+
+lab2: Facial detection system
+
+lab3: Fine tunning an large language model
+
+course website: https://introtodeeplearning.com/

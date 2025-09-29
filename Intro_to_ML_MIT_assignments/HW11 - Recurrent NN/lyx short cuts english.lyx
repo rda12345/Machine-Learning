@@ -1,0 +1,487 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\pd}[2]{\frac{\partial#1}{\partial#2}}
+{\frac{\partial#1}{\partial#2}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ppd}[2]{\frac{\partial^{2}#1}{\partial#2^{2}}}
+{\frac{\partial^{2}#1}{\partial#2^{2}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\dde}[2]{\frac{d^{2}#1}{d#2^{2}}}
+{\frac{d^{2}#1}{d#2^{2}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ppx}[1]{\frac{\partial^{2}#1}{\partial x{}^{2}}}
+{\frac{\partial^{2}#1}{\partial x{}^{2}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ppy}[1]{\frac{\partial^{2}#1}{\partial y{}^{2}}}
+{\frac{\partial^{2}#1}{\partial y{}^{2}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ppt}[1]{\frac{\partial^{2}#1}{\partial t^{2}}}
+{\frac{\partial^{2}#1}{\partial t^{2}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pt}[1]{\frac{\partial#1}{\partial t}}
+{\frac{\partial#1}{\partial t}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\px}[1]{\frac{\partial#1}{\partial x}}
+{\frac{\partial#1}{\partial x}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\n}{\nabla}
+{\nabla}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\grad}{\bar{\nabla}}
+{\bar{\nabla}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\div}[1]{\bar{\nabla}\cdot\bar{#1}}
+{\bar{\nabla}\cdot\bar{#1}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\lap}{\nabla^{2}}
+{\nabla^{2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\th}{\theta}
+{\theta}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\eps}{\varepsilon}
+{\varepsilon}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\fii}{\varphi}
+{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\nii}{\nu}
+{\nu}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\lam}{\lambda}
+{\lambda}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\w}{\omega}
+{\omega}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\infint}{\intop_{-\infty}^{\infty}}
+{\intop_{-\infty}^{\infty}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\speint}{\intop_{0}^{R}\intop_{0}^{\pi}\intop_{0}^{2\pi}}
+{\intop_{0}^{R}\intop_{0}^{\pi}\intop_{0}^{2\pi}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\int}[3]{\intop_{#1}^{#2}#3}
+{\intop_{#1}^{#2}#3}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\cylint}{\intop_{0}^{R}\intop_{0}^{2\pi}\intop_{0}^{h}}
+{\intop_{0}^{R}\intop_{0}^{2\pi}\intop_{0}^{h}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\la}{\leftarrow}
+{\leftarrow}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\La}{\Leftarrow}
+{\Leftarrow}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ra}{\rightarrow}
+{\rightarrow}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Ra}{\Rightarrow}
+{\Rightarrow}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\Da}{\Downarrow}
+{\Downarrow}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\da}{\downarrow}
+{\downarrow}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\v}[1]{\vec{#1}}
+{\vec{#1}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\vect}[3]{\left(\begin{array}{c}
+ #1\\
+ #2\\
+ #3 
+\end{array}\right)}
+{\left(\begin{array}{c}
+#1\\
+#2\\
+#3
+\end{array}\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\vecd}[2]{\left(\begin{array}{c}
+ #1\\
+ #2 
+\end{array}\right)}
+{\left(\begin{array}{c}
+#1\\
+#2
+\end{array}\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tg}{\mathrm{tg}}
+{\mathrm{tg}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\atg}{\mathrm{tg^{-1}}}
+{\mathrm{tg^{-1}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\asin}{\sin^{-1}}
+{\sin^{-1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\acos}{\cos^{-1}}
+{\cos^{-1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\atan}{\tan^{-1}}
+{\tan^{-1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\info}[1]{\lim_{#1\rightarrow0}}
+{\lim_{#1\rightarrow0}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\inflim}[1]{\lim_{#1\rightarrow\infty}}
+{\lim_{#1\rightarrow\infty}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\limm}[2]{\lim_{#1\rightarrow#2}}
+{\lim_{#1\rightarrow#2}}
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\funx}{f\left(x\right)}
+{f\left(x\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\b}[1]{\left(#1\right)}
+{\left(#1\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\funr}{f\left(r\right)}
+{f\left(r\right)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\infsum}{\sum_{n=0}^{\infty}}
+{\sum_{n=0}^{\infty}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\f}[2]{\frac{#1}{#2}}
+{\frac{#1}{#2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\bra}[1]{\left\langle #1\right|}
+{\left\langle #1\right|}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ket}[1]{\left|#1\right\rangle }
+{\left|#1\right\rangle }
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\braket}[2]{\left\langle #1|#2\right\rangle }
+{\left\langle #1|#2\right\rangle }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\p}{\partial}
+{\partial}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\l}[3]{\left[#1\right]_{#2}^{#3}}
+{\left[#1\right]_{#2}^{#3}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\sb}[1]{\left[#1\right]}
+{\left[#1\right]}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\mean}[1]{\left\langle #1\right\rangle }
+{\left\langle #1\right\rangle }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\d}{\mathrm{\cdot}}
+{\mathrm{\cdot}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\q}{\qquad}
+{\qquad}
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\matd}[4]{\left(\begin{array}{cc}
+ #1  &  #2\\
+ #3  &  #4 
+\end{array}\right)}
+{\left(\begin{array}{cc}
+#1 & #2\\
+#3 & #4
+\end{array}\right)}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\infcup}[1]{\bigcup_{#1=1}^{\infty}}
+{\bigcup_{#1=1}^{\infty}}
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\infcap}[1]{\bigcap_{#1=1}^{\infty}}
+{\bigcap_{#1=1}^{\infty}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\seq}{\subseteq}
+{\subseteq}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\Epsilon}{\varepsilon}
+{\varepsilon}
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
