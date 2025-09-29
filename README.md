@@ -1,4 +1,4 @@
-# Machine-Learning
+# Machine Learning
 Contains  material related to machine learning
 
 ## Introduction to machine learning - MIT's online course 6.036
@@ -21,6 +21,11 @@ course website: https://introtodeeplearning.com/
 Neural_network.py contains code based on the explanations, as well as solutions to the code-related problems of the book
 "Neural networks and deep learning" by Michael Nielsen
 http://neuralnetworksanddeeplearning.com/index.html.
+
+## Reinforcement learning
+Contains RL algorithms and solutions to various built-in environments in OpenAI's Gymnasium module.
+Following Sutton and Barto's book, the problems are solved by employing: 
+Q-learning, policy, and value iteration methods.
 
 
 
